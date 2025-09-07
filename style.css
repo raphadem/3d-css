@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: black;
+  font-family: arial;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 100vw;
+}
+
+.image-slider {
+  display: flex;
+  justify-content: center;
+}
+
+.image-slider img {
+  display: block;
+  transform: rotateZ(10deg);
+}
+
+.selection-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 100px 0;
+}
+
+button {
+  font-family: inherit;
+  font-size: 24px;
+  font-weight: 700;
+
+  border: none;
+  border-radius: 10px;
+
+  padding: 15px 40px;
+}
