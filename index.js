@@ -1,11 +1,26 @@
-let image = document.querySelector(".image-slider img");
-console.log(image);
-let theta = 0;
+let imageContainer = document.querySelector(".image-container");
+let prev = document.getElementById("prev");
+let next = document.getElementById("next");
+let x = 0;
+let timer;
 
-function rotate() {
-  image.style.transform = `rotateY(${theta}deg)`;
-  theta++;
-  if (theta >= 360) theta = 0;
-  setTimeout(rotate, 10);
+prev.addEventListener("click", () => {
+  x += 45;
+  clearTimeout(timer);
+  updateGallery();
+});
+next.addEventListener("click", () => {
+  x -= 45;
+  clearTimeout(timer);
+  updateGallery();
+});
+
+function updateGallery() {
+  imageContainer.style.transform = `perspective(1000px) rotateY(${x}deg)`;
+  timer = setTimeout(() => {
+    x -= 45;
+    updateGallery();
+  }, 1000);
 }
-rotate();
+
+updateGallery();

@@ -2,41 +2,67 @@ body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  background-color: black;
-  font-family: arial;
-
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-}
-
-.container {
-  width: 100vw;
-}
-
-.image-slider {
-  display: flex;
+  text-align: center;
   justify-content: center;
+  background-color: black;
+  overflow: hidden;
+  font-family: arial;
 }
 
-.image-slider img {
-  display: block;
-  transform: rotateZ(10deg);
+.image-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+  transform: perspective(1000px) rotateY(0deg);
+  transition: transform 0.5s ease;
 }
 
-.selection-bar {
-  display: flex;
-  justify-content: space-between;
-  padding: 50px 100px 0;
+.image-container span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: rotateY(calc(var(--i) * 45deg)) translateZ(400px);
 }
 
-button {
+.image-container span img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.btn-container {
+  position: relative;
+  width: 80%;
+}
+
+.btn {
+  position: absolute;
+
   font-family: inherit;
   font-size: 24px;
   font-weight: 700;
 
   border: none;
   border-radius: 10px;
-
   padding: 15px 40px;
+
+  cursor: pointer;
+}
+
+.btn:hover {
+  filter: brightness(1.5);
+}
+
+#prev {
+  left: 20%;
+}
+
+#next {
+  right: 20%;
 }
